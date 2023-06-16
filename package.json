@@ -1,0 +1,34 @@
+{
+  "name": "4fcc-voting-app",
+  "version": "1.0.0",
+  "description": "This is an app to create and manage questions online.",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon run src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnselmoFarfan2002/4fcc-voting-app.git"
+  },
+  "keywords": [
+    "api",
+    "voting"
+  ],
+  "author": "AnselmoFarfan2002",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnselmoFarfan2002/4fcc-voting-app/issues"
+  },
+  "homepage": "https://github.com/AnselmoFarfan2002/4fcc-voting-app#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "mongoose": "^7.2.3",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.22"
+  }
+}

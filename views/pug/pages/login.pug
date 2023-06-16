@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Log in
+        include ../partials/libraries.pug
+        
+    body(data-bs-theme="dark")
+        include ../partials/nav.pug
+
+        main.py-4
+            section.container.d-flex.justify-content-center
+                form(action="/sessions" method="POST").text-center.border.rounded.p-5
+                    h3.mb-4 Log In
+                    
+                    fieldset.text-start.mb-3
+                        label(for="username").mb-1 Username
+                        input#username(type="text", name="username" placeholder="mrTilin" required).form-control
+
+                    fieldset.text-start.mb-3
+                        label(for="password").mb-1 Password
+                        input#password(type="password" name="password" placeholder="••••••" required).form-control
+
+                    button.btn.btn-secondary.my-3 Let me in
+
+                    .form-text Don't have an account? 
+                        a(href="/signup").text-decoration-none Sign up
+

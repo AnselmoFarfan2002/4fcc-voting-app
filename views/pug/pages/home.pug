@@ -1,0 +1,63 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Home
+        include ../partials/libraries.pug
+        style.
+            .cquestion{ width: 500px; }
+        
+    body(data-bs-theme="dark")
+        include ../partials/nav.pug
+
+        main#questions.py-4
+            section.container.d-flex.flex-wrap.gap-3.justify-content-center
+                form(action="/votes" method="POST").p-4.border.rounded.cquestion
+                    label(for="questionId").h5.mb-0 Is this a valid question?
+                    .form-text.mb-3 By 
+                        span.author mrTilin777
+
+                    select#questionId.form-control.mb-3
+                        option(value="-2") This question is mega zzzz afsdfas df asdfsad 
+                        option(value="-2") This question is mega xd
+                        option(value="-2") This question is mega zzzz 
+                        option(value="-2") This question is mega lol
+                        option(value="-1") Add option
+                    
+                    input(type="text" disabled="true" required placeholder="Select add option to edit").form-control.w-100.mb-3
+                    .d-grid.gap-2
+                        button.btn.btn-secondary(type="submit") Vote 
+
+                form(action="/votes" method="POST").p-4.border.rounded.cquestion
+                    label(for="questionId").h5.mb-3 Is this a valid question? 
+                    select#questionId.form-control.mb-3
+                        option(value="-2") This question is mega zzzz afsdfas df asdfsad 
+                        option(value="-2") This question is mega xd
+                        option(value="-2") This question is mega zzzz 
+                        option(value="-2") This question is mega lol
+                        option(value="-1") Add question
+                    .d-grid.gap-2
+                        button.btn.btn-secondary(type="submit") Vote 
+            
+                form(action="/votes" method="POST").p-4.border.rounded.cquestion
+                    label(for="questionId").h5.mb-3 Is this a valid question? 
+                    select#questionId.form-control.mb-3
+                        option(value="-2") This question is mega zzzz afsdfas df asdfsad 
+                        option(value="-2") This question is mega xd
+                        option(value="-2") This question is mega zzzz 
+                        option(value="-2") This question is mega lol
+                        option(value="-1") Add question
+                    .d-grid.gap-2
+                        button.btn.btn-secondary(type="submit") Vote 
+            
+                form(action="/votes" method="POST").p-4.border.rounded.cquestion
+                    label(for="questionId").h5.mb-3 Is this a valid question? 
+                    select#questionId.form-control.mb-3
+                        option(value="-2") This question is mega zzzz afsdfas df asdfsad 
+                        option(value="-2") This question is mega xd
+                        option(value="-2") This question is mega zzzz 
+                        option(value="-2") This question is mega lol
+                        option(value="-1") Add question
+                    .d-grid.gap-2
+                        button.btn.btn-secondary(type="submit") Vote 
