@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title New polls
+        include ../partials/libraries.pug
+        style.
+            .cquestion{ width: 500px; }
+        
+    body(data-bs-theme="dark")
+        include ../partials/nav.pug
+
+        main 
+            section.container-sm.p-4
+                form(method="POST")
+                    h3 New poll
+                    fieldset.mb-3
+                        label(for="question").mb-2 Question
+                        input#question(name="newquestion" type="text" placeholder="is this a question?" required).form-control
+
+                    fieldset.mb-3
+                        label(for="options").mb-2 Options (separed by commas)
+                        textarea#options(name="newoptions", cols="30", rows="6" placeholder="option 1,option 2,option 3" required).form-control
+                    
+                    .btn-group.w-100
+                        a(type="button" href="/mypolls").btn.btn-dark.border Cancel
+                        button(type="submit").btn.btn-secondary Create

@@ -12,7 +12,7 @@ const app = express()
 app.set("view engine", "pug")
 app.set("PORT", process.env.APP_PORT || 80)
 
-app.use( bodyParser.urlencoded({extended: false}) )
+app.use( bodyParser.urlencoded({extended: false}) );
 app.use( express.json() )
 app.use( morgan("dev") )
 app.use( express.static("views") )
