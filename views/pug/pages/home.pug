@@ -1,9 +1,8 @@
 doctype html
 html(lang="en")
     head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Home
+        title Voting App - Home
+        include ../partials/meta.pug
         include ../partials/libraries.pug
         style.
             .cquestion{ width: 500px; }
@@ -15,12 +14,12 @@ html(lang="en")
             h3.text-center.mb-4 Hi! Welcome to my voting app
             section.container.d-flex.flex-wrap.gap-3.justify-content-center
                 each element in polls
-                    form(action=`/vote/${element._id}` method="POST").p-4.border.rounded.cquestion
-                        label(for="questionId").h5.mb-0 #{element.question}
+                    form(id=`${element._id}` action=`/vote/${element._id}` method="POST").p-4.border.rounded.cquestion
+                        label(for=`${element._id}-select`).h5.mb-0 #{element.question}
                         .form-text.mb-3 By 
                             span.author #{element.author}
 
-                        select(name="voteOptions")#questionId.form-select.mb-3
+                        select(name="voteOptions" id=`${element._id}-select` title="Options").form-select.mb-3
                             each op in element.options
                                 option #{op.value}
                             option Add option...
@@ -29,3 +28,5 @@ html(lang="en")
                         
                         .d-grid.gap-2
                             button.btn.btn-secondary(type="submit") Vote 
+        
+        script(type="text/javascript" src="/js/handleOptions.js")

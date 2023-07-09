@@ -24,8 +24,9 @@ class PollController extends Controller {
     }
 
     getUI(req, res) {
+        console.log(req.session)
         let service = new PollServices
-        service.getAll( polls => res.render("pug/pages/home", { polls }) )
+        service.getAll( polls => res.render("pug/pages/home", { polls, session: req.isAuthenticated() }) )
     }
 }
 

@@ -1,32 +1,35 @@
 const { PollModel, PollValidation } = require("../models/Poll.model")
-const printFail = require("./showErrors,js")
+const printFail = require("./printFail")
 
 class Poll {
     constructor(author, question, options){
-        if ( question ) {
-            if ( PollValidation({ question, options, author }) ) {
-                this.question = question
-                this.options = options
-                this.author = author
-            } else printFail(PollValidation)
-        } else {
+        if ( author && !PollValidation({ question, options, author }) ) 
+            printFail(PollValidation)
+        else {
             this.question = question
             this.options = options
+            this.author = author
         }
     }
 
     vote(value){
-        const { options } = this
-        options = options.filter(op => op.value === value)
+        let { options } = this
+        let numberOp;
+        
+        option = options.find((op, index) => { 
+            let band = op.value === value
+            if (band) numberOp = index
+            return band
+        })
 
-        if( options.length ) 
-            options[0].votes += 1
+        if( option !== undefined ) 
+            this.options[numberOp].votes += 1
         else 
-            options.push({value, votes: 1})
+            this.options.push({value, votes: 1})
     }
 
     save(callback){
-        if( this.id ) this.update(callback) 
+        if (this.id) throw new Error("This object had been alrady saved")
         else if ( PollValidation(this) ) {
             let newPoll = new PollModel( this )
             this.id = newPoll._id
@@ -38,6 +41,20 @@ class Poll {
                 return 0    
             })
         } else printFail(PollValidation)
+    }
+
+    load(id, callback){
+        Poll.findOne({ _id: id })
+        .then(poll => {
+            const { _id, question, options, author } = poll
+            this.id = _id
+            this.question = question
+            this.options = options
+            this.author = author
+
+            if(typeof callback === "function") callback()
+        })
+        .catch(err => { throw new Error("The specified object cannot be loaded") })
     }
 }
 

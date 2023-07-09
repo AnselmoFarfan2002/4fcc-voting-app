@@ -2,13 +2,15 @@ const { Router } = require("express")
 const PollRoutes = Router()
 
 const PollControllers = require("../controllers/PollController")
+const {ensureAuthentication, ensureNonAuthentication} = require("./auth.control")
+
 const controller = new PollControllers
 
 // PollRoutes.route("/a")
 // .get( controller.getAll )
 
 PollRoutes.route("/newpoll")
-.post( controller.postOne )
+.post( ensureAuthentication, controller.postOne )
 
 PollRoutes.route("/")
 .get( controller.getUI )

@@ -1,9 +1,8 @@
 doctype html
 html(lang="en")
     head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Log in
+        title Voting App - Log in
+        include ../partials/meta.pug
         include ../partials/libraries.pug
         
     body(data-bs-theme="dark")
@@ -11,7 +10,7 @@ html(lang="en")
 
         main.py-4
             section.container.d-flex.justify-content-center
-                form(action="/sessions" method="POST").text-center.border.rounded.p-5
+                form(action="/login" method="POST").text-center.border.rounded.p-5
                     h3.mb-4 Log In
                     
                     fieldset.text-start.mb-3

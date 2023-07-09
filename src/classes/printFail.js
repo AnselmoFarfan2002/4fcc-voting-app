@@ -8,7 +8,9 @@ function printFail( validation ){
         console.log('-------------------------------------')
     })
 
-    throw new Error('Se produjo un error al crear el objeto')
+    console.log(validation.errors)
+
+    throw new Error('An error occurred during validation')
 }
 
 module.exports = printFail

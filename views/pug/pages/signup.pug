@@ -1,9 +1,8 @@
 doctype html
 html(lang="en")
     head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Sign up
+        title Voting App - Sign up
+        include ../partials/meta.pug
         include ../partials/libraries.pug
         
     body(data-bs-theme="dark")
@@ -11,7 +10,7 @@ html(lang="en")
 
         main.py-4
             section.container.d-flex.justify-content-center
-                form(action="/users" method="POST").text-center.border.rounded.p-5
+                form(action="/signup" method="POST").text-center.border.rounded.p-5
                     h3.mb-4 Sign Up
                     
                     fieldset.text-start.mb-3
@@ -20,7 +19,11 @@ html(lang="en")
 
                     fieldset.text-start.mb-3
                         label(for="password").mb-1 Password
-                        input#password(type="password" name="password" placeholder="••••••" required).form-control
+                        input#password(type="password" name="password1" placeholder="••••••" required).form-control
+                    
+                    fieldset.text-start.mb-3
+                        label(for="password").mb-1 Password confirm
+                        input#password(type="password" name="password2" placeholder="••••••" required).form-control
 
                     button.btn.btn-secondary.my-3 Let me join
 
