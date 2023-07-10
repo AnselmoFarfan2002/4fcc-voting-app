@@ -1,5 +1,5 @@
 const { Router } = require("express")
-const { ensureNonAuthentication } = require("./auth.control")
+const { ensureNonAuthentication, ensureAuthentication } = require("./auth.control")
 const { passport } = require("../../config/auth.conf")
 
 const router = Router()
@@ -19,5 +19,8 @@ router.route("/login")
 router.route("/signup")
 .get(ensureNonAuthentication, (req, res) => res.render("pug/pages/signup", {session: req.isAuthenticated()}))
 .post(ensureNonAuthentication, controller.signUpOne)
+
+router.route("/logout")
+.get(ensureAuthentication, controller.logOut)
 
 module.exports = router

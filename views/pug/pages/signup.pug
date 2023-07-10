@@ -12,6 +12,9 @@ html(lang="en")
             section.container.d-flex.justify-content-center
                 form(action="/signup" method="POST").text-center.border.rounded.p-5
                     h3.mb-4 Sign Up
+
+                    if message
+                        .alert.alert-danger #{message}
                     
                     fieldset.text-start.mb-3
                         label(for="username").mb-1 Username

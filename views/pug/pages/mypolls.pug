@@ -12,18 +12,30 @@ html(lang="en")
 
         main#questions.py-4
             section.container.d-flex.flex-wrap.gap-3.justify-content-center
-                form(action="/votes" method="POST").p-4.border.rounded.cquestion
+                .p-4.border.rounded.cquestion
                     label(for="questionId").h5.mb-0 Is this a valid question?
                     .form-text.mb-3 By 
-                        span.author mrTilin777
+                        span.author userName
 
-                    select#questionId.form-control.mb-3
-                        option(value="-2") This question is mega zzzz afsdfas df asdfsad 
-                        option(value="-2") This question is mega xd
-                        option(value="-2") This question is mega zzzz 
-                        option(value="-2") This question is mega lol
-                        option(value="-1") Add option
+                    ul.list-group.list-group-numbered.mb-3
+                        li.list-group-item.d-flex.justify-content-between
+                            .ms-2.me-auto This question is mega zzzz afsdfas df asdfsad
+                            span.badge.bg-secondary.rounded-pill 15
+
+                        li.list-group-item.d-flex.justify-content-between
+                            .ms-2.me-auto This question is mega xd
+
+                            span.badge.bg-secondary.rounded-pill 10
+                        li.list-group-item.d-flex.justify-content-between
+                            .ms-2.me-auto This question is mega zzzz
+                            span.badge.bg-secondary.rounded-pill 5
+
+                        li.list-group-item.d-flex.justify-content-between
+                            .ms-2.me-auto This question is mega lol
+                            span.badge.bg-secondary.rounded-pill 0
                     
-                    input(type="text" disabled="true" required placeholder="Select add option to edit").form-control.w-100.mb-3
-                    .d-grid.gap-2
-                        button.btn.btn-secondary(type="submit") Vote 
+                    .btn-group.w-100
+                        button.btn.btn-dark.border(type="submit") Delete
+                        button.btn.btn-secondary(type="submit") Share 
+
+    script(src="/js/mypolls.js") 
