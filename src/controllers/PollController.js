@@ -16,7 +16,7 @@ class PollController extends Controller {
             votes: 0,
         }))
 
-        let newPoll = new Poll("mrTilin", newquestion, newoptions)
+        let newPoll = new Poll(req.session.passport.user, newquestion, newoptions)
 
         const redirect = () => res.redirect("/mypolls")
         // newPoll.save( res.send.bind(res) )
@@ -24,9 +24,23 @@ class PollController extends Controller {
     }
 
     getUI(req, res) {
-        console.log(req.session)
         let service = new PollServices
-        service.getAll( polls => res.render("pug/pages/home", { polls, session: req.isAuthenticated() }) )
+        service.getAll( polls => res.render("pug/pages/home", {
+            polls,
+            session: req.isAuthenticated() 
+        }))
+    }
+
+    getOwn(req, res) {
+        let service = new PollServices
+        service.getPollsOf(req.session.passport.user, (err, polls) => {
+            if(err) {
+                console.log(err)
+                return res.send({msg: "service not avaible"})
+            }
+
+            res.send(super._makeListResources(polls))
+        })
     }
 }
 

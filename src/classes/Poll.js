@@ -37,7 +37,7 @@ class Poll {
             newPoll.save()
             .then( callback )
             .catch( err => {
-                console.log(err)
+                console.error(err)
                 return 0    
             })
         } else printFail(PollValidation)

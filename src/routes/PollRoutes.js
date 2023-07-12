@@ -15,6 +15,9 @@ PollRoutes.route("/newpoll")
 PollRoutes.route("/")
 .get( controller.getUI )
 
+PollRoutes.route("/polls/own")
+.get( controller.getOwn )
+
 // router.route("/vote/:id")
 // .post()
 

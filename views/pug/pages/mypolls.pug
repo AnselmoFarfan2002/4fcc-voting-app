@@ -12,30 +12,9 @@ html(lang="en")
 
         main#questions.py-4
             section.container.d-flex.flex-wrap.gap-3.justify-content-center
-                .p-4.border.rounded.cquestion
-                    label(for="questionId").h5.mb-0 Is this a valid question?
-                    .form-text.mb-3 By 
-                        span.author userName
-
-                    ul.list-group.list-group-numbered.mb-3
-                        li.list-group-item.d-flex.justify-content-between
-                            .ms-2.me-auto This question is mega zzzz afsdfas df asdfsad
-                            span.badge.bg-secondary.rounded-pill 15
-
-                        li.list-group-item.d-flex.justify-content-between
-                            .ms-2.me-auto This question is mega xd
-
-                            span.badge.bg-secondary.rounded-pill 10
-                        li.list-group-item.d-flex.justify-content-between
-                            .ms-2.me-auto This question is mega zzzz
-                            span.badge.bg-secondary.rounded-pill 5
-
-                        li.list-group-item.d-flex.justify-content-between
-                            .ms-2.me-auto This question is mega lol
-                            span.badge.bg-secondary.rounded-pill 0
-                    
-                    .btn-group.w-100
-                        button.btn.btn-dark.border(type="submit") Delete
-                        button.btn.btn-secondary(type="submit") Share 
+                #emptyAlert.d-none.alert.alert-warning.text-center You don't have any polls yet
+                    <br> Try creating one first
+                    br
+                    a(href="/newpoll").text-decoration-none  Click here
 
     script(src="/js/mypolls.js") 
